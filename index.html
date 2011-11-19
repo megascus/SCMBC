@@ -3,11 +3,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
+  <title>Gitチートシート</title>
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="1038.36">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Kaku Gothic ProN'}
+    p {
+        margin: 5.0px 0.0px 5.0px 20.0px;
+    }
     span.s1 {font: 12.0px Helvetica}
     table {
         margin: 10px 0;
@@ -44,17 +46,22 @@
         border-bottom-right-radius: 4px;
         border-bottom-left-radius: 4px;
     }
+    pre {
+        font-family:'Courier New','Courier','ＭＳ ゴシック',monospace;
+        background: whiteSmoke;
+        margin-left: 3em;
+    }
 </style>
 </head>
 <body>
-<h1>{DVCS名}チートシート</h1>
+<h1>Gitチートシート</h1>
 
 <h2>よく使うコマンド</h2>
 
 <h3>add</h3>
-gitの管理領域としてはローカルのワーキングツリーとindexとリポジトリとリモートの公開リポジトリあって<br />
-これはローカルのindexにステージするコマンド<br />
-このコマンドでcommitする対象のファイルを選ぶ<br />
+<p>gitの管理領域としてはローカルのワーキングツリーとindexとリポジトリとリモートの公開リポジトリあって<br/>
+これはローカルのindexにステージするコマンド<br/>
+このコマンドでcommitする対象のファイルを選ぶ</p>
 <pre>
 まず変更対象ファイルを確認して、
 ファイルをステージする。
@@ -64,8 +71,12 @@ $ git add index.html
 $ git reset HEAD index.html
 </pre>
 
-<h3>remove</h3>
-<p></p>
+<h3>rm</h3>
+<p>ワーキングツリーとインデックスからファイルを削除する。</p>
+<table>
+<tr class="header"><th>オプション</th><th>説明</th></tr>
+<tr class="content"><td>-f</td><td>リポジトリ上のアップデートを無視する。</td></tr>
+</table>
 
 <h3>commit</h3>
 <p>現在のコンテンツを、変更内容のメッセージとともに保存する。</p>
@@ -109,15 +120,49 @@ $ git reset HEAD index.html
     <tr class="content"><td>-f</td><td>強制的にプッシュする。</td></tr>
     <tr class="content"><td>-q</td><td>エラーメッセージ以外を出力しない。</td></tr>
   </table>
-  
 </p>
 
 <h3>pull</h3>
-<p></p>
+<p>ほかのリポジトリの変更点をローカルリポジトリにマージする</p>
 
 <h3>merge</h3>
 <p></p>
 
+<h3>clone</h3>
+<p>
+  git cloneはリポジトリの履歴情報までも含めてリポジトリを複製するため、大規模なプロジェクトの場合は多くのファイルを取得/コピーしなければならないことがある。もし最新のソースファイルを取得する目的のみで使用し、ソースファイルの修正を行わない場合は、「--depth」オプションで取得するリビジョン数を指定するとよい。
+  <table>
+    <tr><th>オプション</th><th>説明</th></tr>
+    <tr><td>--depth 1</td><td>最新リビジョンだけを取得。</td></tr>
+  </table>
+  
+</p>
+
+<h3>grep</h3>
+<p>
+  パターンにマッチした行を表示する。
+  <table>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>-v</td><td>パターンにマッチしない行を表示する。</td></tr>
+    <tr class="content"><td>-n</td><td>マッチした行の先頭に行番号を表示する。</td></tr>
+  </table>
+</p>
+
+<h3>gc</h3>
+<p>
+リポジトリ内の不要なオブジェクトを削除し、最適化を行う。
+</p>
+
+<table>
+    <tr class="header">
+        <th>オプション</th>
+        <th>説明</th>
+    </tr>
+    <tr class="content">
+        <td>-prune=日付</td>
+        <td>引数の日付より古いオブジェクトを削除する。</td>
+    </tr>
+</table>
 <h2>単語</h2>
 
 <h3>branch</h3>
@@ -133,8 +178,6 @@ $ git reset HEAD index.html
     </table>
 
 <h3>revision</h3>
-
-<h3>commit</h3>
 
 <h3>workspace</h3>
 </body>
