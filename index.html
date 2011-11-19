@@ -7,7 +7,9 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="1038.36">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Kaku Gothic ProN'}
+    p {
+        margin: 5.0px 0.0px 5.0px 20.0px;
+    }
     span.s1 {font: 12.0px Helvetica}
     table {
         margin: 10px 0;
@@ -57,9 +59,9 @@
 <h2>よく使うコマンド</h2>
 
 <h3>add</h3>
-gitの管理領域としてはローカルのワーキングツリーとindexとリポジトリとリモートの公開リポジトリあって<br />
-これはローカルのindexにステージするコマンド<br />
-このコマンドでcommitする対象のファイルを選ぶ<br />
+<p>gitの管理領域としてはローカルのワーキングツリーとindexとリポジトリとリモートの公開リポジトリあって<br/>
+これはローカルのindexにステージするコマンド<br/>
+このコマンドでcommitする対象のファイルを選ぶ</p>
 <pre>
 まず変更対象ファイルを確認して、
 ファイルをステージする。
@@ -128,10 +130,33 @@ $ git reset HEAD index.html
 </p>
 
 <h3>pull</h3>
-<p></p>
+<p>ほかのリポジトリの変更点をローカルリポジトリにマージする</p>
 
 <h3>merge</h3>
-<p></p>
+<p>マージする。</p>
+<table>
+    <tr class="header">
+        <th>オプション</th><th>説明</th>
+    </tr>
+    <tr class="content">
+        <td>-n</td>
+        <td>マージ後のdiffを非表示にする。</td>
+    </tr>
+    <tr class="content">
+        <td>--stat</td>
+        <td>マージ後のdiffを表示する。</td>
+    </tr>
+</table>
+
+<h3>clone</h3>
+<p>
+  git cloneはリポジトリの履歴情報までも含めてリポジトリを複製するため、大規模なプロジェクトの場合は多くのファイルを取得/コピーしなければならないことがある。もし最新のソースファイルを取得する目的のみで使用し、ソースファイルの修正を行わない場合は、「--depth」オプションで取得するリビジョン数を指定するとよい。
+  <table>
+    <tr><th>オプション</th><th>説明</th></tr>
+    <tr><td>--depth 1</td><td>最新リビジョンだけを取得。</td></tr>
+  </table>
+  
+</p>
 
 <h3>grep</h3>
 <p>
@@ -149,11 +174,11 @@ $ git reset HEAD index.html
 </p>
 
 <table>
-    <tr>
+    <tr class="header">
         <th>オプション</th>
         <th>説明</th>
     </tr>
-    <tr>
+    <tr class="content">
         <td>-prune=日付</td>
         <td>引数の日付より古いオブジェクトを削除する。</td>
     </tr>
@@ -161,10 +186,18 @@ $ git reset HEAD index.html
 <h2>単語</h2>
 
 <h3>branch</h3>
+<p>
+    branchを表示、作成、削除するコマンド。ふつうは、ある変更意図があったらmasterブランチからトピックブランチを起こして開発する。
+    そのほうが変更を破棄したり出来るし、公開リポジトリのmasterを常に正常な状態に保てるので安心して開発ができる。</p>
+    <table>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>引数なし</td><td>現在のブランチ一覧を表示する。*がついてるのが現在のブランチ。</td></tr>
+    <tr class="content"><td>git branch [ branch name ]</td><td>branch nameのbranchを作成する</td></tr>
+    <tr class="content"><td>-d</td><td>merge済branchを削除する</td></tr>
+    <tr class="content"><td>-D</td><td>mergeしてないbranchでも強制削除する。</td></tr>
+    </table>
 
 <h3>revision</h3>
-
-<h3>commit</h3>
 
 <h3>workspace</h3>
 </body>
