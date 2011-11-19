@@ -179,6 +179,16 @@ $ git reset HEAD index.html
 <h2>単語</h2>
 
 <h3>branch</h3>
+<p>
+    branchを表示、作成、削除するコマンド。ふつうは、ある変更意図があったらmasterブランチからトピックブランチを起こして開発する。
+    そのほうが変更を破棄したり出来るし、公開リポジトリのmasterを常に正常な状態に保てるので安心して開発ができる。</p>
+    <table>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>引数なし</td><td>現在のブランチ一覧を表示する。*がついてるのが現在のブランチ。</td></tr>
+    <tr class="content"><td>git branch [ branch name ]</td><td>branch nameのbranchを作成する</td></tr>
+    <tr class="content"><td>-d</td><td>merge済branchを削除する</td></tr>
+    <tr class="content"><td>-D</td><td>mergeしてないbranchでも強制削除する。</td></tr>
+    </table>
 
 <h3>revision</h3>
 
