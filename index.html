@@ -118,7 +118,6 @@ $ git reset HEAD index.html
     <tr class="content"><td>-f</td><td>強制的にプッシュする。</td></tr>
     <tr class="content"><td>-q</td><td>エラーメッセージ以外を出力しない。</td></tr>
   </table>
-  
 </p>
 
 <h3>pull</h3>
@@ -127,17 +126,27 @@ $ git reset HEAD index.html
 <h3>merge</h3>
 <p></p>
 
+<h3>grep</h3>
+<p>
+  パターンにマッチした行を表示する。
+  <table>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>-v</td><td>パターンにマッチしない行を表示する。</td></tr>
+    <tr class="content"><td>-n</td><td>マッチした行の先頭に行番号を表示する。</td></tr>
+  </table>
+</p>
+
 <h3>gc</h3>
 <p>
 リポジトリ内の不要なオブジェクトを削除し、最適化を行う。
 </p>
 
 <table>
-    <tr>
+    <tr class="header">
         <th>オプション</th>
         <th>説明</th>
     </tr>
-    <tr>
+    <tr class="content">
         <td>-prune=日付</td>
         <td>引数の日付より古いオブジェクトを削除する。</td>
     </tr>
