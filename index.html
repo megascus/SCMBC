@@ -130,6 +130,42 @@ $ git reset HEAD index.html
     <tr class="content"><td>-q</td><td>エラーメッセージ以外を出力しない。</td></tr>
   </table>
 </p>
+<p>コンフリクトが発生した際は、下記の処理を行い、マージ後に再度push。</p>
+<pre>
+pushする。（リモートで既に変更されていて、コンフリクトが発生する）
+$ git push
+To git@github.com:megascus/SCMBC.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:megascus/SCMBC.git'
+To prevent you from losing history, non-fast-forward updates were rejected
+Merge the remote changes (e.g. 'git pull') before pushing again.  See the
+'Note about fast-forwards' section of 'git push --help' for details.
+
+コンフリクトが発生したので、pullしてリモートの変更をローカルに取ってくる。
+$ git pull
+remote: Counting objects: 18, done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 12 (delta 4), reused 11 (delta 3)
+Unpacking objects: 100% (12/12), done.
+From github.com:megascus/SCMBC
+   b6b2f85..9557052  master     -> origin/master
+（今回の例では自動でマージ）
+Auto-merging index.html
+Merge made by recursive.
+ index.html |   15 ++++++++++++---
+ 1 files changed, 12 insertions(+), 3 deletions(-)
+
+マージ後にpushして、リモートのレポジトリに反映する。
+$ git push
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 665 bytes, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To git@github.com:megascus/SCMBC.git
+   9557052..e396d4f  master -> master
+$ 
+</pre>
 
 <h3>pull</h3>
 <p>ほかのリポジトリの変更点をローカルリポジトリにマージする</p>
@@ -154,8 +190,8 @@ $ git reset HEAD index.html
 <p>
   git cloneはリポジトリの履歴情報までも含めてリポジトリを複製するため、大規模なプロジェクトの場合は多くのファイルを取得/コピーしなければならないことがある。もし最新のソースファイルを取得する目的のみで使用し、ソースファイルの修正を行わない場合は、「--depth」オプションで取得するリビジョン数を指定するとよい。
   <table>
-    <tr><th>オプション</th><th>説明</th></tr>
-    <tr><td>--depth 1</td><td>最新リビジョンだけを取得。</td></tr>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>--depth 1</td><td>最新リビジョンだけを取得。</td></tr>
   </table>
   
 </p>
@@ -185,7 +221,7 @@ $ git reset HEAD index.html
         <td>引数の日付より古いオブジェクトを削除する。</td>
     </tr>
 </table>
-<h2>単語</h2>
+<h2>単語conflict test</h2>
 
 <h3>branch</h3>
 <p>
@@ -200,7 +236,10 @@ $ git reset HEAD index.html
     </table>
 
 <h3>revision</h3>
+<p>ファイルの細かい変更を表す改訂番号。GitではSHA1のIDを使っている。</p>
 
 <h3>workspace</h3>
+<p>gitの作業ディレクトリ。</p>
+
 </body>
 </html>
