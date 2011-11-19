@@ -9,7 +9,42 @@
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Kaku Gothic ProN'}
     span.s1 {font: 12.0px Helvetica}
-  </style>
+    table {
+        margin: 10px 0;
+        margin-left: 3em;
+        background: #E6F1F6;
+        border: 1px solid #C5D5DD;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+    tr.header {
+        margin-left: -8px;
+        width: 100%;
+        padding: 8px;
+        background: #E6F1F6;
+        border: 1px solid #C5D5DD;
+        -webkit-border-bottom-right-radius: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    tr.content {
+        margin-left: -8px;
+        width: 100%;
+        padding: 8px;
+        background: white;
+        border-top: 1px solid #D8E6EC;
+        -webkit-border-bottom-right-radius: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+</style>
 </head>
 <body>
 <h1>{DVCS名}チートシート</h1>
@@ -40,8 +75,8 @@ $ git reset HEAD^
 <p>現在のコンテンツを、変更内容のメッセージとともに保存する。</p>
 
 <table>
-<tr><th>オプション</th><th>説明</th></tr>
-<tr><td>-m</td><td>変更内容のメッセージを指定する。</td></tr>
+<tr class="header"><th>オプション</th><th>説明</th></tr>
+<tr class="content"><td>-m</td><td>変更内容のメッセージを指定する。</td></tr>
 </table>
 
 <h3>log</h3>
@@ -50,16 +85,16 @@ $ git reset HEAD^
 コミットログは新しいものから順に表示される。<br />
 次の実行例のようにそれぞれのコミットについてそのコミットを表すハッシュ値とコミット者、タイムスタンプ、コメントが表示される。<br />
 <table>
-<tr>
+<tr class="header">
     <th>オプション</th>
     <th>説明</th></tr>
-<tr>
+<tr class="content">
     <td>-p</td>
     <td>コミットした記録をパッチ形式で出力。<br />
 さらに-数字オプションで、出力するコミットの数を制限可能。<br />
 --pretty=shortオプションで、ログメッセージの最初の一段落のみ出力。</td>
 </tr>
-<tr>
+<tr class="content">
     <td>--grep=パターン</td>
     <td>ログメッセージを文字列を元に検索。複数の--grepオプションを指定した場合はOR検索になる。<br />AND検索にするには--all-matchオプションを加える。</td>
 </tr>
@@ -74,9 +109,9 @@ $ git reset HEAD^
 <p>
   ローカルの変更をリモートリポジトリに反映させる。
   <table>
-    <tr><th>オプション</th><th>説明</th></tr>
-    <tr><td>-f</td><td>強制的にプッシュする。</td></tr>
-    <tr><td>-q</td><td>エラーメッセージ以外を出力しない。</td></tr>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>-f</td><td>強制的にプッシュする。</td></tr>
+    <tr class="content"><td>-q</td><td>エラーメッセージ以外を出力しない。</td></tr>
   </table>
   
 </p>
