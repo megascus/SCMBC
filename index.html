@@ -86,6 +86,13 @@ $ git reset HEAD index.html
 <tr class="content"><td>-m</td><td>変更内容のメッセージを指定する。</td></tr>
 </table>
 
+<h3>fetch &lt;repository&gt;</h3>
+<p>リモートリポジトリの変更を最新状態に更新する。</p>
+<table>
+ <tr class="header"><th>オプション</th><th>説明</th></tr>
+ <tr class="content"><td>repository</td><td>リモートリポジトリ名。</td></tr>
+</table>
+
 <h3>log</h3>
 <p>
 コミットログを閲覧する。<br />
@@ -162,7 +169,30 @@ $
 <p>ほかのリポジトリの変更点をローカルリポジトリにマージする</p>
 
 <h3>merge</h3>
-<p></p>
+<p>マージする。</p>
+<table>
+    <tr class="header">
+        <th>オプション</th><th>説明</th>
+    </tr>
+    <tr class="content">
+        <td>-n</td>
+        <td>マージ後のdiffを非表示にする。</td>
+    </tr>
+    <tr class="content">
+        <td>--stat</td>
+        <td>マージ後のdiffを表示する。</td>
+    </tr>
+</table>
+
+<h3>clone</h3>
+<p>
+  git cloneはリポジトリの履歴情報までも含めてリポジトリを複製するため、大規模なプロジェクトの場合は多くのファイルを取得/コピーしなければならないことがある。もし最新のソースファイルを取得する目的のみで使用し、ソースファイルの修正を行わない場合は、「--depth」オプションで取得するリビジョン数を指定するとよい。
+  <table>
+    <tr><th>オプション</th><th>説明</th></tr>
+    <tr><td>--depth 1</td><td>最新リビジョンだけを取得。</td></tr>
+  </table>
+  
+</p>
 
 <h3>grep</h3>
 <p>
@@ -192,10 +222,18 @@ $
 <h2>単語</h2>
 
 <h3>branch</h3>
+<p>
+    branchを表示、作成、削除するコマンド。ふつうは、ある変更意図があったらmasterブランチからトピックブランチを起こして開発する。
+    そのほうが変更を破棄したり出来るし、公開リポジトリのmasterを常に正常な状態に保てるので安心して開発ができる。</p>
+    <table>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>引数なし</td><td>現在のブランチ一覧を表示する。*がついてるのが現在のブランチ。</td></tr>
+    <tr class="content"><td>git branch [ branch name ]</td><td>branch nameのbranchを作成する</td></tr>
+    <tr class="content"><td>-d</td><td>merge済branchを削除する</td></tr>
+    <tr class="content"><td>-D</td><td>mergeしてないbranchでも強制削除する。</td></tr>
+    </table>
 
 <h3>revision</h3>
-
-<h3>commit</h3>
 
 <h3>workspace</h3>
 </body>
