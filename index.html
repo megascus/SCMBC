@@ -9,7 +9,42 @@
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Kaku Gothic ProN'}
     span.s1 {font: 12.0px Helvetica}
-  </style>
+    table {
+        margin: 10px 0;
+        margin-left: 3em;
+        background: #E6F1F6;
+        border: 1px solid #C5D5DD;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+    tr.header {
+        margin-left: -8px;
+        width: 100%;
+        padding: 8px;
+        background: #E6F1F6;
+        border: 1px solid #C5D5DD;
+        -webkit-border-bottom-right-radius: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    tr.content {
+        margin-left: -8px;
+        width: 100%;
+        padding: 8px;
+        background: white;
+        border-top: 1px solid #D8E6EC;
+        -webkit-border-bottom-right-radius: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+</style>
 </head>
 <body>
 <h1>{DVCS名}チートシート</h1>
@@ -17,7 +52,17 @@
 <h2>よく使うコマンド</h2>
 
 <h3>add</h3>
-<p>addコマンドに対する説明</p>
+gitの管理領域としてはローカルのワーキングツリーとindexとリポジトリとリモートの公開リポジトリあって<br />
+これはローカルのindexにステージするコマンド<br />
+このコマンドでcommitする対象のファイルを選ぶ<br />
+<pre>
+まず変更対象ファイルを確認して、
+ファイルをステージする。
+$ git add index.html
+通常このあとはcommitするのみ。
+問題があったら
+$ git reset HEAD index.html
+</pre>
 
 <h3>remove</h3>
 <p></p>
@@ -26,8 +71,8 @@
 <p>現在のコンテンツを、変更内容のメッセージとともに保存する。</p>
 
 <table>
-<tr><th>オプション</th><th>説明</th></tr>
-<tr><td>-m</td><td>変更内容のメッセージを指定する。</td></tr>
+<tr class="header"><th>オプション</th><th>説明</th></tr>
+<tr class="content"><td>-m</td><td>変更内容のメッセージを指定する。</td></tr>
 </table>
 
 <h3>log</h3>
@@ -36,16 +81,16 @@
 コミットログは新しいものから順に表示される。<br />
 次の実行例のようにそれぞれのコミットについてそのコミットを表すハッシュ値とコミット者、タイムスタンプ、コメントが表示される。<br />
 <table>
-<tr>
+<tr class="header">
     <th>オプション</th>
     <th>説明</th></tr>
-<tr>
+<tr class="content">
     <td>-p</td>
     <td>コミットした記録をパッチ形式で出力。<br />
 さらに-数字オプションで、出力するコミットの数を制限可能。<br />
 --pretty=shortオプションで、ログメッセージの最初の一段落のみ出力。</td>
 </tr>
-<tr>
+<tr class="content">
     <td>--grep=パターン</td>
     <td>ログメッセージを文字列を元に検索。複数の--grepオプションを指定した場合はOR検索になる。<br />AND検索にするには--all-matchオプションを加える。</td>
 </tr>
@@ -57,7 +102,15 @@
 <p>作業ツリーを指定したコミット時点の状態にまで戻し、コミットを行う。引数にはコミットを指定するハッシュ文字列もしくはタグ名などを指定する。git revertはgit resetと似ているが、作業ツリーを差し戻したという情報が作業履歴に残る。</p>
 
 <h3>push</h3>
-<p>ローカルの変更をリモートリポジトリに反映させる。</p>
+<p>
+  ローカルの変更をリモートリポジトリに反映させる。
+  <table>
+    <tr class="header"><th>オプション</th><th>説明</th></tr>
+    <tr class="content"><td>-f</td><td>強制的にプッシュする。</td></tr>
+    <tr class="content"><td>-q</td><td>エラーメッセージ以外を出力しない。</td></tr>
+  </table>
+  
+</p>
 
 <h3>pull</h3>
 <p></p>
